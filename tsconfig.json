@@ -20,7 +20,8 @@
     "paths": {
       "@features/*": ["features/*"],
       "@configs/*": ["configs/*"],
-      "@utils/*": ["utils/*"]
+      "@utils/*": ["utils/*"],
+      "@common/*": ["common/*"]
     }
   },
   "exclude": [

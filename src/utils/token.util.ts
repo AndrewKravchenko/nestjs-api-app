@@ -1,8 +1,9 @@
 import { JwtService } from '@nestjs/jwt';
 import { UserEntity } from '@features/user';
+import { UserPayload } from "@features/user/interfaces/user-payload.interface";
 
 export const generateToken = (user: UserEntity, jwtService: JwtService) => {
-  const payload = {
+  const payload: UserPayload = {
     id: user.id,
     email: user.email,
     firstName: user.firstName,
