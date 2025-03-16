@@ -2,23 +2,29 @@ import { Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { InjectRepository } from '@nestjs/typeorm';
-import { UserEntity } from './entities/user.entity';
+import { User } from './entities/user.entity';
 import { Repository } from 'typeorm';
+import { RoleService } from '@features/role';
 import * as bcrypt from 'bcrypt';
+import { RoleEnum } from '@features/role/entities';
 
 @Injectable()
 export class UserService {
   constructor(
-    @InjectRepository(UserEntity)
-    private usersRepository: Repository<UserEntity>,
+    @InjectRepository(User)
+    private usersRepository: Repository<User>,
+    private roleService: RoleService,
   ) {}
 
   async create(createUserDto: CreateUserDto) {
-    const user = new UserEntity();
+    const role = await this.roleService.getRole(RoleEnum.USER);
     const hashedPassword = await bcrypt.hash(createUserDto.password, 10);
 
-    Object.assign(user, { ...createUserDto, password: hashedPassword });
-
+    const user = this.usersRepository.create({
+      ...createUserDto,
+      password: hashedPassword,
+      role,
+    });
     return this.usersRepository.save(user);
   }
 

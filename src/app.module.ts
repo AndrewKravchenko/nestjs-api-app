@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { getPostgresConfig } from '@configs/postgres.config';
-import { UserModule, AuthModule } from './features';
+import { UserModule, AuthModule, RoleModule } from './features';
 
 @Module({
   imports: [
@@ -13,6 +13,7 @@ import { UserModule, AuthModule } from './features';
     TypeOrmModule.forRootAsync(getPostgresConfig()),
     UserModule,
     AuthModule,
+    RoleModule,
   ],
   controllers: [],
   providers: [],
