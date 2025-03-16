@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from "@nestjs/typeorm";
-import { ConfigModule } from "@nestjs/config";
-import { getPostgresConfig } from "@configs/postgres.config";
-import { UserModule } from '@features/user/user.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { ConfigModule } from '@nestjs/config';
+import { getPostgresConfig } from '@configs/postgres.config';
+import { UserModule, AuthModule } from './features';
 
 @Module({
   imports: [
@@ -11,7 +11,8 @@ import { UserModule } from '@features/user/user.module';
       envFilePath: `src/envs/.${process.env.NODE_ENV}.env`,
     }),
     TypeOrmModule.forRootAsync(getPostgresConfig()),
-    UserModule
+    UserModule,
+    AuthModule,
   ],
   controllers: [],
   providers: [],
