@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { getPostgresConfig } from '@configs/postgres.config';
-import { UserModule, AuthModule, RoleModule } from './features';
+import { UserModule, AuthModule, RoleModule, EndpointModule } from './features';
 
 @Module({
   imports: [
@@ -14,6 +14,7 @@ import { UserModule, AuthModule, RoleModule } from './features';
     UserModule,
     AuthModule,
     RoleModule,
+    EndpointModule,
   ],
   controllers: [],
   providers: [],
