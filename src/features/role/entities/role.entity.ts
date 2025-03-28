@@ -1,5 +1,5 @@
-import { Column, Entity, OneToMany, PrimaryColumn } from 'typeorm';
 import { User } from '@features/user/entities';
+import { Column, Entity, OneToMany, PrimaryColumn } from 'typeorm';
 
 export enum RoleEnum {
   ADMIN = 'admin',

@@ -1,5 +1,5 @@
-import { IsNotEmpty, Length, IsEnum } from 'class-validator';
 import { RoleEnum } from '@features/role/entities';
+import { IsNotEmpty, Length, IsEnum } from 'class-validator';
 
 export class CreateRoleDto {
   @IsEnum(RoleEnum)

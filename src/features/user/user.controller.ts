@@ -1,3 +1,5 @@
+import { CurrentUser } from '@common/decorators/current-user.decorator';
+import { AuthGuard } from '@common/guards/auth.guard';
 import {
   Body,
   Controller,
@@ -8,12 +10,11 @@ import {
   Post,
   UseGuards,
 } from '@nestjs/common';
-import { UserService } from './user.service';
+
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { AuthGuard } from '@common/guards/auth.guard';
-import { CurrentUser } from '@common/decorators/current-user.decorator';
 import { UserPayload } from './interfaces/user-payload.interface';
+import { UserService } from './user.service';
 
 @Controller('api/v1/users')
 export class UserController {

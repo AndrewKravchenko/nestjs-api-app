@@ -1,12 +1,13 @@
+import { RoleService } from '@features/role';
+import { RoleEnum } from '@features/role/entities';
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import * as bcrypt from 'bcrypt';
+import { Repository } from 'typeorm';
+
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './entities/user.entity';
-import { Repository } from 'typeorm';
-import { RoleService } from '@features/role';
-import * as bcrypt from 'bcrypt';
-import { RoleEnum } from '@features/role/entities';
 
 @Injectable()
 export class UserService {

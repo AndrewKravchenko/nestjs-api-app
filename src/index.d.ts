@@ -1,4 +1,4 @@
-import { UserPayload } from './user/interfaces/user-payload.interface';
+import type { UserPayload } from './user/interfaces/user-payload.interface';
 
 declare global {
   namespace Express {

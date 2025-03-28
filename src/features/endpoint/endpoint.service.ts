@@ -1,9 +1,10 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+
 import { CreateEndpointDto } from './dto/create-endpoint.dto';
 import { UpdateEndpointDto } from './dto/update-endpoint.dto';
 import { Endpoint } from './entities';
-import { Repository } from "typeorm";
-import { InjectRepository } from "@nestjs/typeorm";
 
 @Injectable()
 export class EndpointService {

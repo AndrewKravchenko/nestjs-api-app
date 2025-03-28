@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common';
-import { EndpointService } from './endpoint.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
+
 import { EndpointController } from './endpoint.controller';
+import { EndpointService } from './endpoint.service';
 import { Endpoint } from './entities';
-import { TypeOrmModule } from "@nestjs/typeorm";
 
 @Module({
   imports: [TypeOrmModule.forFeature([Endpoint])],

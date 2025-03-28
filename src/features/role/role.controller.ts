@@ -1,3 +1,6 @@
+import { TransformDTO } from '@common/interceptors/transform-dto.interceptor';
+import { ResponseRoleDTO } from '@features/role/dto/response-role.dto';
+import { RoleEnum } from '@features/role/entities';
 import {
   Controller,
   Get,
@@ -7,12 +10,10 @@ import {
   Param,
   Delete,
 } from '@nestjs/common';
-import { RoleService } from './role.service';
+
 import { CreateRoleDto } from './dto/create-role.dto';
 import { UpdateRoleDto } from './dto/update-role.dto';
-import { ResponseRoleDTO } from '@features/role/dto/response-role.dto';
-import { TransformDTO } from '@common/interceptors/transform-dto.interceptor';
-import { RoleEnum } from '@features/role/entities';
+import { RoleService } from './role.service';
 
 @Controller('api/v1/roles')
 @TransformDTO(ResponseRoleDTO)

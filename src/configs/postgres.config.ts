@@ -1,8 +1,8 @@
-import { ConfigModule, ConfigService } from '@nestjs/config';
-import { TypeOrmModuleAsyncOptions } from '@nestjs/typeorm';
-import { User } from '@features/user/entities';
-import { Role } from '@features/role/entities';
 import { Endpoint } from '@features/endpoint/entities';
+import { Role } from '@features/role/entities';
+import { User } from '@features/user/entities';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import type { TypeOrmModuleAsyncOptions } from '@nestjs/typeorm';
 
 export const getPostgresConfig = (): TypeOrmModuleAsyncOptions => {
   return {
